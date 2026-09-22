@@ -43,8 +43,6 @@ bash script1_sysinfo.sh
 
 The output should contain all five system values. Each output line should appear in green in a terminal.
 
-Actual output:
-
 ![System information output](image/steps/1789482847025.png)
 
 ## Step 3. Create `script2_diskcheck.sh`
@@ -82,8 +80,6 @@ chmod +x script2_diskcheck.sh
 bash script2_diskcheck.sh
 ```
 
-Actual output:
-
  ![1789539889804](image/steps/1789539889804.png)
 
 Test the three threshold outcomes by setting `TEST_USAGE` for each command:
@@ -94,8 +90,6 @@ TEST_USAGE=95 bash script2_diskcheck.sh
 ```
 
 The expected results are `OK`, `WARNING`, and `CRITICAL`, respectively.
-
-Actual output:
 
 ![1789539874645](image/steps/1789539874645.png)
 
@@ -145,8 +139,6 @@ bash script3_userreport.sh
 ```
 
 Existing accounts should show their `id` output. Missing accounts should show `NOT FOUND`. The final line must report `Total users checked: 3`.
-
-Actual output:
 
 ![1789539689996](image/steps/1789539689996.png)
 
@@ -198,8 +190,6 @@ bash script4_cleanup.sh
 
 The old file should be deleted and the new file should remain.
 
-Actual output:
-
 ![1789538591510](image/steps/1789538591510.png)
 
 ### Test Trap 1
@@ -211,8 +201,6 @@ rm -rf tmptest
 touch tmptest
 bash script4_cleanup.sh
 ```
-
-Actual output:
 
 ![1789539320861](image/steps/1789539320861.png)
 
@@ -227,8 +215,6 @@ trap 'echo "ERROR at line $LINENO" >> "$LOG_FILE"; exit 1' ERR
 ls /fakedirectory
 ...
 ```
-
-Actual output;
 
 ![1789540345329](image/steps/1789540345329.png)
 
@@ -295,8 +281,6 @@ Check the final directory contents:
 ls -1 logs/
 ```
 
-Actual output:
-
 ![1789539478867](image/steps/1789539478867.png)
 
 ![Final log versions](image/steps/1789487698347.png)
@@ -320,7 +304,8 @@ BASE_DIR="$HOME/lab1a_bash"
 SOURCE="$BASE_DIR/logs"
 LOG_FILE="$BASE_DIR/backup.log"
 
-trap 'echo "Failed $(date -Is)" >> "$LOG_FILE"; exit 1' ERR
+echo "__________________________________" >> "$LOG_FILE"
+trap 'echo "Failed $(date -Is)" >> $LOG_FILE; exit 1' ERR
 
 DEST="$BASE_DIR/backup_$(date +%Y%m%d_%H%M%S)"
 
@@ -341,32 +326,43 @@ chmod +x backup_auto.sh
 bash backup_auto.sh
 ```
 
-![Backup output](image/steps/1789488545578.png)
+![1790085024062](image/extrasteps/1790085024062.png)
 
 Confirm that two separate timestamped directories were created and inspect the backup log:
 
 ```bash
 ls -d backup_2026*
+```
+
+![1790085102473](image/extrasteps/1790085102473.png)
+
+```bash
 cat backup.log
 ```
 
-![Backup directories](image/steps/1789488560035.png)
+![1790085069351](image/extrasteps/1790085069351.png)
+
+Create restored/ directory.
+
+```bash
+mkdir restored
+```
 
 Restore one file from the first backup.
 
 ```bash
-cp backup_20260916_000710/app.log.1 logs/app.log.1.restored
+cp backup_20260922_205318/app.1.log restored/
 ```
 
-![Restored file](image/steps/1789489028302.png)
+![1790085227354](image/extrasteps/1790085227354.png)
 
 Verify that 2 are identical.
 
 ```bash
-cp backup_20260916_000710/app.log.1 logs/app.log.1.restored
+cat backup_20260922_205318/app.1.log restored/app.1.log
 ```
 
-![Restore verification](image/steps/1789489043166.png)
+![1790085354153](image/extrasteps/1790085354153.png)
 
 ## Step 8. Configure and verify cron
 
@@ -404,14 +400,16 @@ After at least two entries appear, edit the crontab again and restore the requir
 
 ```bash
 cat cron_disk.log
-journalctl -u cron --since "20 min ago"
 ```
 
-The cron output should contain disk status entries, and the journal should show the cron service launching the command. Use `journalctl` rather than `grep CRON /var/log/syslog`; a minimised Ubuntu Server installation may not include `rsyslog`, so `/var/log/syslog` may not exist.
+The cron output should contain disk status entries. 
 
-Actual output:
+![1790084807926](image/extrasteps/1790084807926.png)
 
-![Cron output](image/steps/1789489718642.png)
+```bash
+journalctl -u cron --since "20 min ago" --no-pager
+```
 
-![Cron journal output](image/steps/1789489766719.png)
+The journal should show the cron service launching the command. Use `journalctl` rather than `grep CRON /var/log/syslog`; a minimised Ubuntu Server installation may not include `rsyslog`, so `/var/log/syslog` may not exist.
 
+![1790084839472](image/extrasteps/1790084839472.png)
