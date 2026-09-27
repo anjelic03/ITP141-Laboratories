@@ -26,7 +26,7 @@ WINSRV-DORSU-[GroupID]
 
 **Screenshot:**
 
-![1790498750581](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/L1p3/1790498750581.png>)
+![1790498750581](image/L1p3/1790498750581.png)
 
 ---
 
@@ -51,7 +51,7 @@ ipconfig /all
 
 **Screenshot:**
 
-![1790498770261](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/L1p3/1790498770261.png>)
+![1790498770261](image/L1p3/1790498770261.png)
 
 ---
 
