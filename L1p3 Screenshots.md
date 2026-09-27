@@ -26,7 +26,7 @@ WINSRV-DORSU-[GroupID]
 
 **Screenshot:**
 
-![1790498750581](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/screenshots/1790498750581.png>)
+![1790498750581](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/L1p3/1790498750581.png>)
 
 ---
 
@@ -51,7 +51,7 @@ ipconfig /all
 
 **Screenshot:**
 
-![1790498770261](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/screenshots/1790498770261.png>)
+![1790498770261](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/anjelic/Documents/School%20Supplies/Y4S1/ITP%20141%20-%20Systems%20Administration%20and%20Maintenance/Lab%20L1p3/image/L1p3/1790498770261.png>)
 
 ---
 
@@ -73,7 +73,7 @@ Enabled
 
 **Screenshot:**
 
-![1790498992112](image/screenshots/1790498992112.png)
+![1790498992112](image/L1p3/1790498992112.png)
 
 ---
 
@@ -101,7 +101,7 @@ Install State : Installed
 
 **Screenshot:**
 
-![1790500077381](image/Lab_1C_Member_1_Screenshot_Checklist/1790500077381.png) ![1790500145777](image/Lab_1C_Member_1_Screenshot_Checklist/1790500145777.png)
+![1790500077381](image/L1p3/1790500077381.png) ![1790500145777](image/L1p3/1790500145777.png)
 
 **Note:** If RSAT is installed but does not appear under the Server Manager Tools menu, keep the PowerShell verification screenshot as evidence and check the specific RSAT feature installed.
 
@@ -132,7 +132,7 @@ Enabled
 
 **Screenshot:**
 
-![1790500381398](image/screenshots/1790500381398.png)
+![1790500381398](image/L1p3/1790500381398.png)
 
 ---
 
@@ -158,7 +158,7 @@ Enabled
 
 **Screenshot:**
 
-![1790514248413](image/screenshots/1790514248413.png)
+![1790514248413](image/L1p3/1790514248413.png)
 
 ---
 
@@ -176,7 +176,7 @@ Name: [Host's wired Ethernet interface]
 
 **Screenshot:**
 
- ![1790514269607](image/screenshots/1790514269607.png)
+ ![1790514269607](image/L1p3/1790514269607.png)
 
 ---
 
@@ -194,7 +194,7 @@ Server name: ubsrv-dorsu-[GroupID]
 
 **Screenshot:**
 
- ![1790514914917](image/screenshots/1790514914917.png) ![1790515068496](image/screenshots/1790515068496.png) ![1790515122420](image/screenshots/1790515122420.png)
+ ![1790514914917](image/L1p3/1790514914917.png) ![1790515068496](image/L1p3/1790515068496.png) ![1790515122420](image/L1p3/1790515122420.png)
 
 ---
 
@@ -210,7 +210,7 @@ sudo apt update && sudo apt full-upgrade -y
 
 **Screenshot:**
 
-![1790515244688](image/screenshots/1790515244688.png)
+![1790515244688](image/L1p3/1790515244688.png)
 
 ---
 
@@ -226,7 +226,7 @@ sudo apt install net-tools curl htop tree -y
 
 **Screenshot:**
 
-![1790515291574](image/screenshots/1790515291574.png)
+![1790515291574](image/L1p3/1790515291574.png)
 
 ---
 
@@ -260,7 +260,7 @@ enabled
 
 **Screenshot:**
 
- ![1790515549013](image/screenshots/1790515549013.png)
+ ![1790515549013](image/L1p3/1790515549013.png)
 
 ---
 
@@ -294,7 +294,7 @@ Asia/Manila
 
 **Screenshot:**
 
-![1790515735996](image/screenshots/1790515735996.png)
+![1790515735996](image/L1p3/1790515735996.png)
 
 ---
 
@@ -348,7 +348,7 @@ nameservers:
 
 **Screenshot:**
 
-![1790518444060](image/screenshots/1790518444060.png)
+![1790518444060](image/L1p3/1790518444060.png)
 
 ---
 
@@ -376,7 +376,7 @@ chmod 600
 
 **Screenshot:**
 
-![1790518497168](image/screenshots/1790518497168.png)
+![1790518497168](image/L1p3/1790518497168.png)
 
 ---
 
@@ -392,7 +392,7 @@ sudo netplan try
 
 **Screenshot:**
 
-![1790518583325](image/screenshots/1790518583325.png)
+![1790518583325](image/L1p3/1790518583325.png)
 
 ---
 
@@ -414,7 +414,7 @@ ip a
 
 **Screenshot:**
 
-![1790518601515](image/screenshots/1790518601515.png)
+![1790518601515](image/L1p3/1790518601515.png)
 
 ---
 
@@ -438,7 +438,7 @@ There should be exactly **one** default route.
 
 **Screenshot:**
 
-![1790518633066](image/screenshots/1790518633066.png)
+![1790518633066](image/L1p3/1790518633066.png)
 
 ---
 
@@ -458,7 +458,7 @@ The configured DNS server should be listed.
 
 **Screenshot:**
 
-![1790518667964](image/screenshots/1790518667964.png)
+![1790518667964](image/L1p3/1790518667964.png)
 
 ---
 
@@ -484,7 +484,7 @@ Example:
 
 **Screenshot:**
 
-![1790520183898](image/screenshots/1790520183898.png)
+![1790520183898](image/L1p3/1790520183898.png)
 
 ---
 
@@ -504,7 +504,7 @@ Four successful replies.
 
 **Screenshot:**
 
-![1790520217685](image/screenshots/1790520217685.png)
+![1790520217685](image/L1p3/1790520217685.png)
 
 ---
 
@@ -524,7 +524,7 @@ Successful login to Ubuntu Server and a shell prompt.
 
 **Screenshot:**
 
-![1790522897180](image/screenshots/1790522897180.png)
+![1790522897180](image/L1p3/1790522897180.png)
 
 ---
 
@@ -558,7 +558,7 @@ followed by the system uptime.
 
 **Screenshot:**
 
-![1790520706323](image/screenshots/1790520706323.png)
+![1790520706323](image/L1p3/1790520706323.png)
 
 **Status:** ☐ PASS ☐ NEEDS FIX
 
