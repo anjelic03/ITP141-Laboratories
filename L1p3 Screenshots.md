@@ -2,10 +2,6 @@
 
 ## Member 1 - Windows Server 2022 Verification
 
-Use this file to organize and label all screenshots for **Member 1** of Lab 1C.
-
-The lab requires Member 1 to verify the Windows Server 2022 guest from Lab 1B before the other members proceed.
-
 ---
 
 ## Screenshot 01 — Windows Server Hostname
