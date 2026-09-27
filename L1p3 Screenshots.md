@@ -1,6 +1,6 @@
-# Lab 1C — Member 1 Screenshot Checklist
+# Lab 1C — Screenshots Checklist
 
-## Windows Server 2022 Verification
+## Member 1 - Windows Server 2022 Verification
 
 Use this file to organize and label all screenshots for **Member 1** of Lab 1C.
 
