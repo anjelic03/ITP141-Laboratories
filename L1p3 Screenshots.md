@@ -73,7 +73,7 @@ Enabled
 
 **Screenshot:**
 
-![1790526859708](image/L1p3/1790526859708.png) ![1790526953650](image/L1p3/1790526953650.png)
+![1790498992112](image/L1p3/1790498992112.png)
 
 ---
 
@@ -101,7 +101,7 @@ Install State : Installed
 
 **Screenshot:**
 
-![1790500077381](image/L1p3/1790500077381.png) ![1790500145777](image/L1p3/1790500145777.png)
+![1790526859708](image/L1p3/1790526859708.png) ![1790526953650](image/L1p3/1790526953650.png)
 
 **Note:** If RSAT is installed but does not appear under the Server Manager Tools menu, keep the PowerShell verification screenshot as evidence and check the specific RSAT feature installed.
 
