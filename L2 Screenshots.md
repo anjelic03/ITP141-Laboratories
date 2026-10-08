@@ -6,11 +6,18 @@ This markdown file serves as the centralized repository for all required screens
 
 ---
 
+### Evidence Recording Checklist
+
+Before final submission, verify that each screenshot is readable and directly supports the stated task. For every activity, record the command used, the observed result, and any required timestamp/state transition. Do not replace actual VM results with sample values.
+
 ### Part 1: OS Patching Workflow
 
 #### 1. Windows Server 2022 (`sconfig` & `Get-HotFix`)
 
-* **Description:** Screenshots showing the `sconfig` quality update list before installation, during/after installation, and the verified hotfix list via PowerShell (`Get-HotFix | Sort-Object InstalledOn`).
+* **Description:** Screenshots showing the complete Windows patching process.
+* **Commands/Actions:** Open PowerShell as Administrator → run `sconfig` → select **6. Install updates** → select **1. All quality updates** → allow installation → reboot if prompted → run `Get-HotFix | Sort-Object InstalledOn`.
+* **Evidence to record:** Number of available updates, KB numbers, installation result, reboot-required status, and final installed KB list.
+* **Purpose:** Proves that Windows Server 2022 was patched through the required `sconfig` workflow and that the installed updates were independently verified with PowerShell.
 
 > **[Insert Windows Update Before/After & Get-HotFix Screenshots Here]**
 > ![1791436519133](image/L2/1791436519133.png)   ![1791436769099](image/L2/1791436769099.png) ![1791438722917](image/L2/1791438722917.png) ![1791438922451](image/L2/1791438922451.png)  ![1791439520378](image/L2/1791439520378.png) ![1791439238842](image/L2/1791439238842.png)
@@ -19,7 +26,10 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 2. Ubuntu Server 24.04 LTS (`apt` & `unattended-upgrades`)
 
-* **Description:** Screenshots showing `sudo apt update`, exact upgradable count using `apt list-upgradable 2>/dev/null | tail -n +2 | wc -l`, successful upgrade execution, `unattended-upgrades` dry-run output (`sudo unattended-upgrade --dry-run --debug`), and active timers (`systemctl list-timers 'apt-daily*'`).
+* **Description:** Screenshots documenting Ubuntu patching and the controlled `unattended-upgrades` configuration.
+* **Commands/Actions:** Run `sudo apt update`; count packages with `apt list --upgradable 2>/dev/null | tail -n +2 | wc -l`; run `sudo apt full-upgrade -y`; run `sudo apt autoremove -y`; check `/var/run/reboot-required`; install/configure `unattended-upgrades`; verify `/etc/apt/apt.conf.d/50unattended-upgrades`; run `sudo unattended-upgrade --dry-run --debug`; check `systemctl list-timers 'apt-daily*'`.
+* **Evidence to record:** Exact upgradable count, packages upgraded, kernel changed (Y/N), reboot-required status, allowed origins, dry-run output, and timer schedule.
+* **Purpose:** Proves that Ubuntu was patched and that automatic security updating was configured and tested without installing packages during the dry run.
 
 > **[Insert Ubuntu Patching & Unattended-Upgrades Screenshots Here]**
 > ![1791450574586](image/L2/1791450574586.png)
@@ -40,7 +50,11 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 3. Windows Service Management (`W32Time` / Spooler)
 
-* **Description:** Screenshots showing initial service status query, stopping the service (`net stop`), verifying stopped status (`sc query`), starting the service (`net start`), and verifying running status.
+* **Description:** Screenshots showing the Windows service state transition and recovery.
+* **Commands/Actions:** Run `sc query state= all`; check `sc query W32Time`; if W32Time is not running, start it with `net start W32Time`; stop with `net stop W32Time`; verify with `sc query W32Time`; start again with `net start W32Time`; verify that it is RUNNING.
+* **Evidence to record:** Initial state, stop timestamp, STOPPED state, start timestamp, RUNNING state, and recovery time.
+* **Fallback:** If W32Time cannot be started on the build, use `Spooler` and document the substitution.
+* **Purpose:** Demonstrates controlled service failure and recovery on Windows Server 2022.
 
 > ## **First ten services reading RUNNING:**
 >
@@ -64,7 +78,10 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 4. Ubuntu Service Management & Masking (`cron`)
 
-* **Description:** Screenshots showing `cron` stop/start/enable transitions, demonstrating that a masked service cannot be started (`Unit cron.service is masked`), and finally unmasking and restarting successfully.
+* **Description:** Screenshots showing the complete Ubuntu `cron` service lifecycle, including the difference between disabling and masking.
+* **Commands/Actions:** Run `systemctl list-units --type=service --state=running | head -15`; stop with `sudo systemctl stop cron`; verify with `systemctl status cron`; start and enable with `sudo systemctl start cron` and `sudo systemctl enable cron`; stop again; mask with `sudo systemctl mask cron`; attempt `sudo systemctl start cron` and capture the `Unit cron.service is masked` failure; unmask with `sudo systemctl unmask cron`; start and verify the service.
+* **Evidence to record:** Initial state, inactive state, enabled/running state, masked state, failed start, unmasked state, and final running state.
+* **Purpose:** Demonstrates that **disable** prevents automatic startup while **mask** prevents the unit from being started until it is unmasked.
 
 > **Ubuntu cron Service**
 > ![1791455880433](image/L2/1791455880433.png)
@@ -78,7 +95,11 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 5. Ubuntu SSH Socket/Service Failure Simulation & Recovery
 
-* **Description:** Screenshots showing the shutdown of `ssh.socket` and `ssh.service`, the connection refused error tested from the Windows guest (`ssh sysadmin@192.168.10.12`), and successful recovery after restarting the socket.
+* **Description:** Screenshots documenting an SSH outage and successful recovery.
+* **Important:** Perform the shutdown from the **Ubuntu VirtualBox console**, not from an SSH session.
+* **Commands/Actions:** Record the start time → run `sudo systemctl stop ssh.socket ssh.service` → from Windows run `ssh sysadmin@192.168.10.12` and capture **Connection refused** → record failure time → run `sudo systemctl start ssh.socket` → connect again from Windows → record recovery time.
+* **Evidence to record:** Outage start time, failed connection, failure time, recovery time, successful connection, and elapsed recovery seconds.
+* **Purpose:** Proves that the group can simulate, identify, and recover an SSH service outage on Ubuntu 24.04.
 
 > **[Insert SSH Outage and Recovery Screenshots Here]**
 > ![1791459547710](image/L2/1791459547710.png)
@@ -91,7 +112,10 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 6. Windows Event Viewer (System Logs)
 
-* **Description:** Screenshots showing three distinct Event Viewer entries filtered for Error and Warning levels over the past 24 hours / 7 days (including Event ID, Source, Time, and Description).
+* **Description:** Three distinct Windows Event Viewer entries from **Windows Logs → System**, filtered to **Error and Warning** levels for the last 24 hours; widen to 7 days only if fewer than three events are available.
+* **Evidence to record for each event:** Event ID, Source, Time, Level, brief description, and recommended action.
+* **Purpose:** Identifies actual Windows system issues that may require investigation or corrective action.
+* **Important:** Use the actual events from the VM; do not invent Event IDs or descriptions.
 
 > **[Insert Windows Event Viewer Screenshots Here]**
 > ![1791459824295](image/L2/1791459824295.png)
@@ -102,7 +126,11 @@ This markdown file serves as the centralized repository for all required screens
 
 #### 7. Ubuntu Log Analysis (`journalctl`)
 
-* **Description:** Screenshots showing `journalctl -p err -n 20`, errors filtered by time and grep, and systemctl failed units.
+* **Description:** Screenshots documenting Ubuntu errors and failed units.
+* **Commands/Actions:** Run `sudo journalctl -p err -n 20`; run `sudo journalctl --since '1 hour ago' | grep -i 'err\|fail' | head -10`; run `systemctl --failed`.
+* **Evidence to record:** Three relevant journal entries, their unit/service, error level, brief description, and recommended action. Also note any failed units reported by `systemctl --failed`.
+* **Purpose:** Provides evidence for the Ubuntu log-analysis requirement and identifies failures that may need remediation.
+* **Important:** Use the actual journal output from the VM; do not fabricate errors or service names.
 
 > **[Insert journalctl Error Logs Screenshots Here]**
 > ![1791460413692](image/L2/1791460413692.png)
