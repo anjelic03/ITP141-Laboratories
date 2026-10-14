@@ -266,9 +266,7 @@ stat -c %A /tmp
 
 **Label:** `Figure 1.14 — Sticky bit on /tmp`
 
-```md
-![Figure 1.14 — Sticky bit on /tmp](screenshots/step1_14_tmp_sticky_bit.png)
-```
+![1791992221490](image/L7/1791992221490.png)
 
 ---
 
@@ -547,9 +545,7 @@ sudo lynis audit system 2>&1 | sudo tee /var/log/lynis_after.log
 
 **Label:** `Figure 6.1 — Lynis post-hardening audit`
 
-```md
-![Figure 6.1 — Lynis post-hardening audit](screenshots/step6_01_lynis_after.png)
-```
+![1791992337132](image/L7/1791992337132.png)
 
 ---
 
