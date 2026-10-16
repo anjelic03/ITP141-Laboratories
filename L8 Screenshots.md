@@ -21,7 +21,7 @@ sudo apt install lynis -y
 
 **Label:** `Figure 1.1 — Lynis installation`
 
-![1791871670876](image/L7/1791871670876.png)
+![1791871670876](image/L8/1791871670876.png)
 
 ---
 
@@ -37,7 +37,7 @@ sudo lynis audit system 2>&1 | sudo tee /var/log/lynis_baseline.log
 
 **Label:** `Figure 1.2 — Lynis baseline audit`
 
-![1791871715165](image/L7/1791871715165.png)
+![1791871715165](image/L8/1791871715165.png)
 
 ---
 
@@ -54,7 +54,7 @@ lynis show version
 
 **Label:** `Figure 1.3 — Baseline hardening index & Lynis Version`
 
-![1791872459954](image/L7/1791872459954.png)
+![1791872459954](image/L8/1791872459954.png)
 
 ---
 
@@ -71,7 +71,7 @@ modprobe -n -v cramfs
 
 **Label:** `Figure 1.5 — cramfs disabled`
 
-![1791872647592](image/L7/1791872647592.png)
+![1791872647592](image/L8/1791872647592.png)
 
 ---
 
@@ -87,7 +87,7 @@ findmnt /tmp
 
 **Label:** `Figure 1.6 — /tmp mount verification`
 
-![1791872957942](image/L7/1791872957942.png)
+![1791872957942](image/L8/1791872957942.png)
 
 **Note:** If `/tmp` is part of `/`, record that fact instead of forcing `noexec`.
 
@@ -112,7 +112,7 @@ MaxAuthTries 3
 
 **Label:** `Figure 1.7 — SSH CIS hardening configuration`
 
-![1791873452663](image/L7/1791873452663.png)
+![1791873452663](image/L8/1791873452663.png)
 
 ---
 
@@ -134,7 +134,7 @@ maxauthtries 3
 
 **Label:** `Figure 1.8 — SSH configuration validation`
 
-![1791874023104](image/L7/1791874023104.png)
+![1791874023104](image/L8/1791874023104.png)
 
 ---
 
@@ -151,7 +151,7 @@ sudo systemctl status ssh
 
 **Label:** `Figure 1.9 — SSH service after hardening`
 
-![1791874042496](image/L7/1791874042496.png)
+![1791874042496](image/L8/1791874042496.png)
 
 ---
 
@@ -167,7 +167,7 @@ sudo apt install libpam-pwquality -y
 
 **Label:** `Figure 1.10 — libpam-pwquality installation`
 
-![1791874360654](image/L7/1791874360654.png)
+![1791874360654](image/L8/1791874360654.png)
 
 ---
 
@@ -191,7 +191,7 @@ ucredit=-1
 
 **Label:** `Figure 1.11 — Password complexity settings`
 
-![1791874386437](image/L7/1791874386437.png)
+![1791874386437](image/L8/1791874386437.png)
 
 ---
 
@@ -221,7 +221,7 @@ sudo chage -l sysadmin
 
 **Label:** `Figure 1.12 — Password ageing policy`
 
-![1791874701087](image/L7/1791874701087.png)
+![1791874701087](image/L8/1791874701087.png)
 
 ---
 
@@ -250,7 +250,7 @@ crontab -l
 
 **Label:** `Figure 1.13 — cron.allow configuration`
 
-![1791874895442](image/L7/1791874895442.png)
+![1791874895442](image/L8/1791874895442.png)
 
 ---
 
@@ -266,7 +266,7 @@ stat -c %A /tmp
 
 **Label:** `Figure 1.14 — Sticky bit on /tmp`
 
-![1791992221490](image/L7/1791992221490.png)
+![1791992221490](image/L8/1791992221490.png)
 
 ---
 
@@ -286,7 +286,7 @@ cat /etc/modprobe.d/usb-storage.conf
 
 **Label:** `Figure 1.15 — USB storage disabled`
 
-![1791875328407](image/L7/1791875328407.png)
+![1791875328407](image/L8/1791875328407.png)
 
 ---
 
@@ -316,7 +316,7 @@ sudo ufw status verbose
 
 **Label:** `Figure 2.1 — Ubuntu UFW default-deny configuration`
 
-![1791982858904](image/L7/1791982858904.png)
+![1791982858904](image/L8/1791982858904.png)
 
 ---
 
@@ -336,11 +336,11 @@ Test-NetConnection 192.168.10.12 -Port 443
 
 **Label:** `Figure 2.2 — UFW verification from Windows Server`
 
-![1791983125830](image/L7/1791983125830.png)
+![1791983125830](image/L8/1791983125830.png)
 
-![1791983143399](image/L7/1791983143399.png)
+![1791983143399](image/L8/1791983143399.png)
 
-![1791983155585](image/L7/1791983155585.png)
+![1791983155585](image/L8/1791983155585.png)
 
 ---
 
@@ -370,7 +370,7 @@ Also scope or remove the previous any-source port `8080` rule.
 
 **Label:** `Figure 3.1 — Windows Firewall configuration`
 
-![1791983768190](image/L7/1791983768190.png) ![1791983777850](image/L7/1791983777850.png) ![1791983786609](image/L7/1791983786609.png)
+![1791983768190](image/L8/1791983768190.png) ![1791983777850](image/L8/1791983777850.png) ![1791983786609](image/L8/1791983786609.png)
 
 ---
 
@@ -380,7 +380,7 @@ Show the created rules in PowerShell or **Windows Defender Firewall with Advance
 
 **Label:** `Figure 3.2 — Windows Firewall inbound rules`
 
-![1791983990335](image/L7/1791983990335.png)
+![1791983990335](image/L8/1791983990335.png)
 
 ---
 
@@ -398,7 +398,7 @@ nc -zv 192.168.10.11 443
 
 **Label:** `Figure 3.3 — Windows Firewall verification from Ubuntu`
 
-![1791984638345](image/L7/1791984638345.png)
+![1791984638345](image/L8/1791984638345.png)
 
 ---
 
@@ -441,7 +441,7 @@ sudo fail2ban-client status sshd
 
 **Label:** `Figure 4.1 — Fail2ban SSH jail configuration`
 
-![1791984950038](image/L7/1791984950038.png)
+![1791984950038](image/L8/1791984950038.png)
 
 ---
 
@@ -458,7 +458,7 @@ sudo fail2ban-client status sshd
 
 **Label:** `Figure 4.2 — Fail2ban SSH jail status`
 
-![1791984893213](image/L7/1791984893213.png)
+![1791984893213](image/L8/1791984893213.png)
 
 ---
 
@@ -478,7 +478,7 @@ Enter an incorrect password three times.
 
 **Label:** `Figure 5.1 — Three failed SSH login attempts`
 
-![1791985161670](image/L7/1791985161670.png)
+![1791985161670](image/L8/1791985161670.png)
 
 ---
 
@@ -494,7 +494,7 @@ ssh wrongpass@192.168.10.12
 
 **Label:** `Figure 5.2 — SSH connection blocked after Fail2ban ban`
 
-![1791985194775](image/L7/1791985194775.png)
+![1791985194775](image/L8/1791985194775.png)
 
 ---
 
@@ -510,7 +510,7 @@ sudo fail2ban-client status sshd
 
 **Label:** `Figure 5.3 — Fail2ban banned IP evidence`
 
-![1791985224671](image/L7/1791985224671.png)
+![1791985224671](image/L8/1791985224671.png)
 
 ---
 
@@ -527,7 +527,7 @@ sudo fail2ban-client status sshd
 
 **Label:** `Figure 5.4 — Fail2ban IP release`
 
-![1791985247477](image/L7/1791985247477.png)
+![1791985247477](image/L8/1791985247477.png)
 
 ---
 
@@ -545,7 +545,7 @@ sudo lynis audit system 2>&1 | sudo tee /var/log/lynis_after.log
 
 **Label:** `Figure 6.1 — Lynis post-hardening audit`
 
-![1791992337132](image/L7/1791992337132.png)
+![1791992337132](image/L8/1791992337132.png)
 
 ---
 
@@ -561,7 +561,7 @@ grep 'Hardening index' /var/log/lynis_after.log
 
 **Label:** `Figure 6.2 — Post-hardening index`
 
-![1791987536818](image/L7/1791987536818.png)
+![1791987536818](image/L8/1791987536818.png)
 
 ---
 
@@ -578,7 +578,7 @@ grep 'Hardening index' /var/log/lynis_after.log
 
 **Label:** `Figure 6.3 — Lynis before-and-after hardening indices`
 
-![1791987558671](image/L7/1791987558671.png)
+![1791987558671](image/L8/1791987558671.png)
 
 ---
 
@@ -604,7 +604,7 @@ The script must:
 
 **Label:** `Figure 7.1 — HTML compliance report generator script`
 
-![1791991320371](image/L7/1791991320371.png) ![1791991342377](image/L7/1791991342377.png)
+![1791991320371](image/L8/1791991320371.png) ![1791991342377](image/L8/1791991342377.png)
 
 ---
 
@@ -624,7 +624,7 @@ ls -l /var/www/html/compliance_report.html
 
 **Label:** `Figure 7.2 — Compliance report generated`
 
-![1791988424615](image/L7/1791988424615.png)
+![1791988424615](image/L8/1791988424615.png)
 
 ---
 
@@ -644,7 +644,7 @@ sudo systemctl status nginx
 
 **Label:** `Figure 7.3 — nginx web server status`
 
-![1791988438994](image/L7/1791988438994.png)
+![1791988438994](image/L8/1791988438994.png)
 
 ---
 
@@ -660,6 +660,6 @@ http://192.168.10.12/compliance_report.html
 
 **Label:** `Figure 7.4 — HTML compliance report viewed from Windows`
 
-![1791991175187](image/L7/1791991175187.png)
+![1791991175187](image/L8/1791991175187.png)
 
 ---
