@@ -396,7 +396,7 @@ sudo cat /etc/sudoers.d/lab4
 
 **Screenshot 15 — `/etc/sudoers.d/lab4` contents**
 
-![1792563965984](image/L4/1792563965984.png)
+![1792563965984](image/L4/1792573897305.png)
 
 ---
 
