@@ -269,7 +269,7 @@ User Configuration
 
 **Screenshot 09 — Control Panel GPO linked to `IT_Department`**
 
-![1792562468888](image/L4/1792562468888.png)
+![1792562468888](image/L4/1792589108833.png)
 
 **Screenshot 10 — Control Panel restriction enabled**
 
