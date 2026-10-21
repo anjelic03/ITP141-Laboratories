@@ -299,7 +299,7 @@ Verify the report shows the correct policies applied to the correct scopes.
 
 **Screenshot 11 — Group Policy Modeling report for `m.cruz`**
 
-![1792563301016](image/L4/1792563301016.png)
+![1792563301016](image/L4/1792589108833.png)
 
 **Record in the worksheet:**
 
