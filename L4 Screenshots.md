@@ -244,7 +244,7 @@ Password must meet complexity requirements = Enabled
 
 **Screenshot 08 — Password Policy settings**
 
-![1792571189143](image/L4/1792571189143.png)
+![1792571189143](image/L4/1792590233484.png)
 
 ---
 
