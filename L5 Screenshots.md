@@ -558,37 +558,9 @@ Suggested entries:
 
 | Strategy                         | Frequency                           | 4-Week Total Storage | Restore Speed           | Best Used For                               | Worst Drawback                                                  |
 | -------------------------------- | ----------------------------------- | -------------------: | ----------------------- | ------------------------------------------- | --------------------------------------------------------------- |
-| Full Backup Weekly Only          | One full backup each week           |            `80 GB` | Fast                    | Simple restore process                      | Up to one week of changes may be missing                        |
+| Full Backup Weekly Only          | Once a week                         |            `80 GB` | Fast                    | Simple restore process                      | Up to a week of data loss                                       |
 | Full Weekly + Incremental Daily  | Weekly full + Mon–Sat incremental  |          `84.8 GB` | Slowest                 | Lower storage use with daily restore points | Restore requires the full backup plus the required incrementals |
-| Full Weekly + Differential Daily | Weekly full + Mon–Sat differential |          `96.8 GB` | Faster than incremental | Faster daily restore with fewer backup sets | Differential backups grow each day                              |
-
-The worksheet explicitly says the deciding constraint for the recommendation is:
-
-```text
-Restore time rather than disk space
-```
-
-A defensible recommendation is:
-
-```text
-Full weekly + differential daily
-```
-
-because restoring normally requires only the latest full backup and the latest differential backup.
-
-**Screenshot 16 — Completed backup-strategy calculation table**
-
-![Screenshot 16 - Backup strategy table](screenshots/16-backup-strategy-table.png)
-
-**What must be visible:**
-
-- All three strategies
-- `80 GB`
-- `84.8 GB`
-- `96.8 GB`
-- Restore-speed comparison
-- Best use
-- Worst drawback
+| Full Weekly + Differential Daily | Weekly full + Mon–Sat differential |          `96.8 GB` | Faster than incremental | Faster daily restore with fewer backup sets | Backup sizes increase daily                                     |
 
 ---
 
@@ -883,14 +855,10 @@ Use your **actual displayed sizes and device paths**.
 
 Expected structure:
 
-| Component                      | Name          |    Size | Device Path                | Mounted At      | File System | fstab Entry |
-| ------------------------------ | ------------- | ------: | -------------------------- | --------------- | ----------- | ----------- |
-| Physical Volume (PV)           | `/dev/sdb`  |  ~20 GB | `/dev/sdb`               | N/A             | LVM PV      | N/A         |
-| Volume Group (VG)              | `lab5_vg`   |  ~20 GB | LVM VG                     | N/A             | LVM         | N/A         |
-| Logical Volume: `data_lv`    | `data_lv`   |    2 GB | `/dev/lab5_vg/data_lv`   | `/mnt/data`   | ext4        | Y           |
-| Logical Volume: `backup_lv`  | `backup_lv` |    1 GB | `/dev/lab5_vg/backup_lv` | `/mnt/backup` | ext4        | Y           |
-| `data_lv` after `lvextend` | `data_lv`   | ~2.5 GB | `/dev/lab5_vg/data_lv`   | `/mnt/data`   | ext4        | Y           |
-
-**Screenshot 25 — Completed LVM Configuration Summary Table**
-
-![Screenshot 25 - LVM summary table](screenshots/25-lvm-summary-table.png)
+| Component                      | Name          |    Size | Device Path                 | Mounted At      | File System | fstab Entry |
+| ------------------------------ | ------------- | ------: | --------------------------- | --------------- | ----------- | ----------- |
+| Physical Volume (PV)           | `sdb`       | <20.00g | `/dev/sdb`                | N/A             | lvm2        | N           |
+| Volume Group (VG)              | `lab5_vg`   | <20.00g | N/A                         | N/A             | N/A         | N           |
+| Logical Volume: `data_lv`    | `data_lv`   |    2.0G | `/dev/lab5_vg/data_lv`    | `/mnt/data`   | ext4        | Y           |
+| Logical Volume: `backup_lv`  | `backup_lv` |    974M |  `/dev/lab5_vg/backup_lv` | `/mnt/backup` | ext4        | Y           |
+| `data_lv` after `lvextend` | `data_lv`   |    2.4G | `/dev/lab5_vg/data_lv`    | `/mnt/data`   | ext4        | Y           |
