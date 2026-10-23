@@ -2,10 +2,6 @@
 
 **Lab 5:** LVM Storage Management, Samba File Sharing, and `rsync` Backup Automation**Platforms:** Ubuntu Server 24.04 LTS + Windows Server 2022**Purpose:** Store and label screenshots for every major Lab 5 step, including executed commands, configuration files, verification results, restore evidence, and required worksheet evidence.
 
-> **Screenshot rule:** Capture the **command/configuration and its result in the same screenshot whenever possible**. Do not crop away the terminal prompt, File Explorer path, service status, mount path, or other context needed to verify what was done.
->
-> **Recommended folder:** Save images in a `screenshots/` folder beside this Markdown file using the filenames shown below.
-
 ---
 
 # STEP 1 — Add and Confirm the Second Virtual Disk
